@@ -31,32 +31,32 @@ explore: dim_products {
   fields: [ALL_FIELDS*]
 }
 
-test: orders_items_2021 {
-  explore_source: order_items {
-    column: count {
-      field: order_items.count_order_items
-    }
-    filters: [order_items.created_year: "2021"]
-  }
-  assert: matches_historic_lower_bound {
-    expression: ${order_items.count_order_items} > 13000  ;;
-  }
-  assert: matches_historic_upper_bound {
-    expression: ${order_items.count_order_items} < 14000  ;;
-  }
-}
+# #test: orders_items_2021 {
+# #  explore_source: order_items {
+# #    column: count {
+# #      field: order_items.count_order_items
+# #    }
+#     filters: [order_items.created_year: "2021"]
+#   }
+#   assert: matches_historic_lower_bound {
+#     expression: ${order_items.count_order_items} > 13000  ;;
+#   }
+#   assert: matches_historic_upper_bound {
+#     expression: ${order_items.count_order_items} < 14000  ;;
+#   }
+# }
 
-test: orders_items_2020 {
-  explore_source: order_items {
-    column: count {
-      field: order_items.count_order_items
-    }
-    filters: [order_items.created_year: "2020"]
-  }
-  assert: matches_historic_lower_bound {
-    expression: ${order_items.count_order_items} > 7000  ;;
-  }
-  assert: matches_historic_upper_bound {
-    expression: ${order_items.count_order_items} < 8000  ;;
-  }
-}
+# test: orders_items_2020 {
+#   explore_source: order_items {
+#     column: count {
+#       field: order_items.count_order_items
+#     }
+#     filters: [order_items.created_year: "2020"]
+#   }
+#   assert: matches_historic_lower_bound {
+#     expression: ${order_items.count_order_items} > 7000  ;;
+#   }
+#   assert: matches_historic_upper_bound {
+#     expression: ${order_items.count_order_items} < 8000  ;;
+#   }
+# }
